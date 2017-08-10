@@ -38,9 +38,14 @@ function mdTable($mdTheming) {
       
       if(body) {
         tElement[0].insertBefore(progress[0], body);
-        $mdTheming(tElement, progress[0]);
       }
     }
+    return function postLink(scope, iElement, iAttrs, $mdThemeController) {
+      if ($mdThemeController) {
+        iElement.data('$mdThemeController', $mdThemeController);
+      }
+      $mdTheming(tElement);
+    };
   }
   
   function Controller($attrs, $element, $q, $scope) {
