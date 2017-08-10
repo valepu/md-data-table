@@ -38,6 +38,7 @@ function mdTable($mdTheming) {
       
       if(body) {
         tElement[0].insertBefore(progress[0], body);
+        $mdTheming(tElement, progress[0]);
       }
     }
   }
@@ -177,6 +178,7 @@ function mdTable($mdTheming) {
     controller: Controller,
     controllerAs: '$mdTable',
     restrict: 'A',
+    require: '?^mdTheme',
     scope: {
       progress: '=?mdProgress',
       selected: '=ngModel',
